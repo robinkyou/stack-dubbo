@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="redisConfig" class="org.kyou.stack.dubbo.service.cache.RedisConfig">
+        <property name="address" value="${redis.address}" />   <!--  属性文件里  key的前缀 -->
+        <property name="timeout" value="${redis.connect.timeout}" />
+        <property name="maxRedirections" value="${redis.maxRedirections}" />
+    </bean>
+
+    <bean id="genericObjectPoolConfig" class="org.apache.commons.pool2.impl.GenericObjectPoolConfig">
+        <property name="maxWaitMillis" value="${pool.maxWaitMillis}" />
+        <property name="maxTotal" value="${pool.maxTotal}" />
+        <property name="minIdle" value="${pool.minIdle}" />
+        <property name="maxIdle" value="${pool.maxIdle}" />
+    </bean>
+
+    <bean id="jedisCluster" class="org.kyou.stack.dubbo.service.cache.RedisClusterFactory">
+        <property name="redisConfig" ref="redisConfig"/>
+        <property name="genericObjectPoolConfig" ref="genericObjectPoolConfig" />
+    </bean>
+</beans>
