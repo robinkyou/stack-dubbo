@@ -32,7 +32,7 @@
         <mybatis-spring.version>2.0.2</mybatis-spring.version>
         <dbcp.version>2.7.0</dbcp.version>
         <mysql-connector.version>6.0.6</mysql-connector.version>
-        <dubbo.version>2.7.3</dubbo.version>
+        <dubbo.version>2.7.15</dubbo.version>
         <jedis.version>3.1.0</jedis.version>
         <apache-commons.version>3.9</apache-commons.version>
     </properties>
